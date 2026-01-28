@@ -1,0 +1,66 @@
+/**
+ * Metis Privatist - Theme Tokens
+ *
+ * Tema-ID: privatist
+ * Dekker: MPB, MPO, MPSS (alle privatist-enheter)
+ * Primærfarge: Teal (#00b398)
+ * Sekundærfarge: Beige (#f9f3e6)
+ */
+
+[data-theme="privatist"],
+.theme-privatist {
+  /* ============================================
+     PRIMÆRFARGER (teal)
+     ============================================ */
+  --metis-primary: #00b398;
+  --metis-primary-hover: #009980;
+  --metis-primary-light: #33c4ad;
+  --metis-primary-rgb: 0, 179, 152;
+
+  /* ============================================
+     SEKUNDÆRFARGER (beige/cream)
+     ============================================ */
+  --metis-secondary: #f9f3e6;
+  --metis-secondary-muted: #f0e8d6;
+  --metis-secondary-rgb: 249, 243, 230;
+
+  /* ============================================
+     UTVIDET PALETT
+     ============================================ */
+  --metis-dark: #1a2a2a;
+  --metis-teal: #00b398;
+  --metis-green: #00b398;
+  --metis-peach: #d7edec;
+  --metis-peach-light: #e8f5f4;
+
+  /* ============================================
+     TEKST
+     ============================================ */
+  --metis-text-primary: #1a1a1a;
+  --metis-text-secondary: #4a4a4a;
+  --metis-text-muted: #6a6a6a;
+  --metis-text-light: #8a8a8a;
+  --metis-text-inverse: #ffffff;
+
+  /* ============================================
+     HSL (for Squarespace-kompatibilitet)
+     ============================================ */
+  --metis-primary-hsl: 171, 100%, 35%;
+  --metis-secondary-hsl: 41, 68%, 94%;
+
+  /* ============================================
+     BORDERS (basert på primærfarge)
+     ============================================ */
+  --metis-border-subtle: rgba(0, 179, 152, 0.08);
+  --metis-border-default: rgba(0, 179, 152, 0.12);
+  --metis-border-strong: rgba(0, 179, 152, 0.2);
+
+  /* ============================================
+     SHADOWS (basert på primærfarge)
+     ============================================ */
+  --metis-shadow-xs: 0 1px 2px rgba(0, 179, 152, 0.04);
+  --metis-shadow-sm: 0 2px 4px rgba(0, 179, 152, 0.06);
+  --metis-shadow-md: 0 4px 12px rgba(0, 179, 152, 0.08);
+  --metis-shadow-lg: 0 8px 24px rgba(0, 179, 152, 0.12);
+  --metis-shadow-xl: 0 16px 48px rgba(0, 179, 152, 0.16);
+}

@@ -1,0 +1,65 @@
+/**
+ * Metis Videregående Skole - Theme Tokens
+ *
+ * Tema-ID: metis-vgs
+ * Primærfarge: Rød (#EE2737)
+ * Sekundærfarge: Gul (#F6E948)
+ */
+
+[data-theme="metis-vgs"],
+.theme-metis-vgs {
+  /* ============================================
+     PRIMÆRFARGER (rød)
+     ============================================ */
+  --metis-primary: #EE2737;
+  --metis-primary-hover: #C41E2D;
+  --metis-primary-light: #F04D5A;
+  --metis-primary-rgb: 238, 39, 55;
+
+  /* ============================================
+     SEKUNDÆRFARGER (gul)
+     ============================================ */
+  --metis-secondary: #F6E948;
+  --metis-secondary-muted: #E5D83A;
+  --metis-secondary-rgb: 246, 233, 72;
+
+  /* ============================================
+     UTVIDET PALETT
+     ============================================ */
+  --metis-dark: #2a1a1a;
+  --metis-teal: #5a2a2a;
+  --metis-green: #EE2737;
+  --metis-peach: #F9B8BB;
+  --metis-peach-light: #FDE8E9;
+
+  /* ============================================
+     TEKST
+     ============================================ */
+  --metis-text-primary: #1a1a1a;
+  --metis-text-secondary: #4a4a4a;
+  --metis-text-muted: #6a6a6a;
+  --metis-text-light: #8a8a8a;
+  --metis-text-inverse: #ffffff;
+
+  /* ============================================
+     HSL (for Squarespace-kompatibilitet)
+     ============================================ */
+  --metis-primary-hsl: 355, 85%, 55%;
+  --metis-secondary-hsl: 55, 90%, 62%;
+
+  /* ============================================
+     BORDERS (basert på primærfarge)
+     ============================================ */
+  --metis-border-subtle: rgba(238, 39, 55, 0.08);
+  --metis-border-default: rgba(238, 39, 55, 0.12);
+  --metis-border-strong: rgba(238, 39, 55, 0.2);
+
+  /* ============================================
+     SHADOWS (basert på primærfarge)
+     ============================================ */
+  --metis-shadow-xs: 0 1px 2px rgba(238, 39, 55, 0.04);
+  --metis-shadow-sm: 0 2px 4px rgba(238, 39, 55, 0.06);
+  --metis-shadow-md: 0 4px 12px rgba(238, 39, 55, 0.08);
+  --metis-shadow-lg: 0 8px 24px rgba(238, 39, 55, 0.12);
+  --metis-shadow-xl: 0 16px 48px rgba(238, 39, 55, 0.16);
+}

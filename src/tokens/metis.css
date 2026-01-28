@@ -1,0 +1,69 @@
+/**
+ * Metis Utdanning - Theme Tokens (Generell/Default)
+ *
+ * Tema-ID: metis
+ * Dekker: Metis Utdanning AS, Metis Skolen, Metis Film & Spill, ukjente enheter
+ *
+ * Farger hentet fra: https://www.metisutdanning.no/ (Squarespace site.css)
+ * Primærfarge: Cyan-blå (#188AAD) - darkAccent
+ * Sekundærfarge: Lys blå (#D6E4EB) - lightAccent
+ */
+
+:root,
+[data-theme="metis"],
+.theme-metis {
+  /* ============================================
+     PRIMÆRFARGER (cyan-blå - fra metisutdanning.no)
+     ============================================ */
+  --metis-primary: #188AAD;
+  --metis-primary-hover: #136D8A;
+  --metis-primary-light: #7EB3C9;
+  --metis-primary-rgb: 24, 138, 173;
+
+  /* ============================================
+     SEKUNDÆRFARGER (lys blå - lightAccent)
+     ============================================ */
+  --metis-secondary: #D6E4EB;
+  --metis-secondary-muted: #C4D7E0;
+  --metis-secondary-rgb: 214, 228, 235;
+
+  /* ============================================
+     UTVIDET PALETT
+     ============================================ */
+  --metis-dark: #0D4D61;
+  --metis-teal: #188AAD;
+  --metis-green: #00B399;            /* Teal fra site background */
+  --metis-peach: #E8F2F6;
+  --metis-peach-light: #F4F9FB;
+
+  /* ============================================
+     TEKST
+     ============================================ */
+  --metis-text-primary: #1a1a1a;
+  --metis-text-secondary: #4a4a4a;
+  --metis-text-muted: #6a6a6a;
+  --metis-text-light: #8a8a8a;
+  --metis-text-inverse: #ffffff;
+
+  /* ============================================
+     HSL (for Squarespace-kompatibilitet)
+     ============================================ */
+  --metis-primary-hsl: 196, 73%, 35%;
+  --metis-secondary-hsl: 200, 32%, 89%;
+
+  /* ============================================
+     BORDERS (basert på primærfarge)
+     ============================================ */
+  --metis-border-subtle: rgba(24, 138, 173, 0.08);
+  --metis-border-default: rgba(24, 138, 173, 0.12);
+  --metis-border-strong: rgba(24, 138, 173, 0.2);
+
+  /* ============================================
+     SHADOWS (basert på primærfarge)
+     ============================================ */
+  --metis-shadow-xs: 0 1px 2px rgba(24, 138, 173, 0.04);
+  --metis-shadow-sm: 0 2px 4px rgba(24, 138, 173, 0.06);
+  --metis-shadow-md: 0 4px 12px rgba(24, 138, 173, 0.08);
+  --metis-shadow-lg: 0 8px 24px rgba(24, 138, 173, 0.12);
+  --metis-shadow-xl: 0 16px 48px rgba(24, 138, 173, 0.16);
+}

@@ -1,0 +1,297 @@
+/**
+ * Bergen Private Gymnas - Brand Stylesheet
+ *
+ * Ren mal ekstrahert fra Squarespace-tema og harmonisert
+ * med BPG-prosjektene (fagkatalog, studieplanlegger, blokkskjema).
+ *
+ * Sist oppdatert: 2026-01-20
+ */
+
+:root {
+  /* ============================================
+     FARGEPALETT - BPG Brand Colors
+     ============================================ */
+
+  /* Primærfarger (mørkegrønn) */
+  --bpg-primary: #1F4739;
+  --bpg-primary-hover: #163529;
+  --bpg-primary-light: #2d6350;
+  --bpg-primary-rgb: 31, 71, 57;
+
+  /* Sekundærfarger (lime/accent) */
+  --bpg-secondary: #E8F5A3;
+  --bpg-secondary-muted: #d4e88f;
+  --bpg-secondary-rgb: 232, 245, 163;
+
+  /* Utvidet palett */
+  --bpg-dark: #1a3a3a;
+  --bpg-teal: #2a5a5a;
+  --bpg-green: #5fa550;
+  --bpg-peach: #f5d5c8;
+  --bpg-peach-light: #faf0eb;
+
+  /* HSL-versjoner (for Squarespace-kompatibilitet) */
+  --bpg-primary-hsl: 156, 39%, 20%;
+  --bpg-secondary-hsl: 73, 80%, 80%;
+
+  /* ============================================
+     NØYTRALE FARGER
+     ============================================ */
+  --bpg-white: #f4f4f6;
+  --bpg-white-pure: #ffffff;
+  --bpg-black: #000000;
+  --bpg-gray-50: #fafafa;
+  --bpg-gray-100: #f5f5f5;
+  --bpg-gray-200: #e7e7e7;
+  --bpg-gray-300: #d0d0d0;
+  --bpg-gray-400: #a9a9a9;
+  --bpg-gray-500: #737373;
+  --bpg-gray-600: #5a5a5a;
+  --bpg-gray-700: #3e3e3e;
+  --bpg-gray-800: #272727;
+  --bpg-gray-900: #1a1a1a;
+
+  /* ============================================
+     TEKST
+     ============================================ */
+  --bpg-text-primary: #1a1a1a;
+  --bpg-text-secondary: #4a4a4a;
+  --bpg-text-muted: #6a6a6a;
+  --bpg-text-light: #8a8a8a;
+  --bpg-text-inverse: #ffffff;
+
+  /* ============================================
+     TYPOGRAFI - Fonts
+     ============================================ */
+
+  /* Heading font: Jubilat (serif) */
+  --bpg-font-heading: "jubilat", Georgia, "Times New Roman", serif;
+  --bpg-font-heading-weight: 200;
+  --bpg-font-heading-style: normal;
+  --bpg-font-heading-transform: none;
+  --bpg-font-heading-spacing: 0em;
+  --bpg-font-heading-line-height: 1.4;
+
+  /* Body font: Raleway (sans-serif) */
+  --bpg-font-body: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bpg-font-body-weight: 300;
+  --bpg-font-body-style: normal;
+  --bpg-font-body-transform: none;
+  --bpg-font-body-spacing: 0em;
+  --bpg-font-body-line-height: 1.8;
+
+  /* Meta font (labels, small text) */
+  --bpg-font-meta: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --bpg-font-meta-weight: 400;
+  --bpg-font-meta-spacing: 0.01em;
+  --bpg-font-meta-line-height: 1;
+
+  /* Monospace */
+  --bpg-font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
+
+  /* ============================================
+     TYPOGRAFI - Størrelser
+     ============================================ */
+  --bpg-font-size-base: 16px;
+
+  /* Headings */
+  --bpg-font-size-h1: 4rem;      /* 64px */
+  --bpg-font-size-h2: 2.8rem;    /* 44.8px */
+  --bpg-font-size-h3: 2.2rem;    /* 35.2px */
+  --bpg-font-size-h4: 1.6rem;    /* 25.6px */
+  --bpg-font-size-h5: 1.25rem;   /* 20px */
+  --bpg-font-size-h6: 1.1rem;    /* 17.6px */
+
+  /* Body text */
+  --bpg-font-size-large: 1.4rem;   /* 22.4px */
+  --bpg-font-size-normal: 1.1rem;  /* 17.6px */
+  --bpg-font-size-small: 0.9rem;   /* 14.4px */
+  --bpg-font-size-tiny: 0.75rem;   /* 12px */
+
+  /* ============================================
+     SPACING
+     ============================================ */
+  --bpg-space-1: 0.25rem;   /* 4px */
+  --bpg-space-2: 0.5rem;    /* 8px */
+  --bpg-space-3: 0.75rem;   /* 12px */
+  --bpg-space-4: 1rem;      /* 16px */
+  --bpg-space-5: 1.25rem;   /* 20px */
+  --bpg-space-6: 1.5rem;    /* 24px */
+  --bpg-space-8: 2rem;      /* 32px */
+  --bpg-space-10: 2.5rem;   /* 40px */
+  --bpg-space-12: 3rem;     /* 48px */
+  --bpg-space-16: 4rem;     /* 64px */
+  --bpg-space-20: 5rem;     /* 80px */
+
+  /* ============================================
+     BORDERS & RADIUS
+     ============================================ */
+  --bpg-border-subtle: rgba(31, 71, 57, 0.08);
+  --bpg-border-default: rgba(31, 71, 57, 0.12);
+  --bpg-border-strong: rgba(31, 71, 57, 0.2);
+  --bpg-border-color: #e7e7e7;
+
+  --bpg-radius-sm: 4px;
+  --bpg-radius-md: 8px;
+  --bpg-radius-lg: 12px;
+  --bpg-radius-xl: 16px;
+  --bpg-radius-2xl: 24px;
+  --bpg-radius-full: 9999px;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  --bpg-shadow-xs: 0 1px 2px rgba(31, 71, 57, 0.04);
+  --bpg-shadow-sm: 0 2px 4px rgba(31, 71, 57, 0.06);
+  --bpg-shadow-md: 0 4px 12px rgba(31, 71, 57, 0.08);
+  --bpg-shadow-lg: 0 8px 24px rgba(31, 71, 57, 0.12);
+  --bpg-shadow-xl: 0 16px 48px rgba(31, 71, 57, 0.16);
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
+  --bpg-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --bpg-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --bpg-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --bpg-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --bpg-duration-fast: 150ms;
+  --bpg-duration-normal: 250ms;
+  --bpg-duration-slow: 400ms;
+
+  /* ============================================
+     Z-INDEX
+     ============================================ */
+  --bpg-z-base: 0;
+  --bpg-z-dropdown: 100;
+  --bpg-z-sticky: 200;
+  --bpg-z-modal-backdrop: 900;
+  --bpg-z-modal: 1000;
+  --bpg-z-tooltip: 1100;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  font-size: var(--bpg-font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--bpg-font-body);
+  font-weight: var(--bpg-font-body-weight);
+  font-style: var(--bpg-font-body-style);
+  line-height: var(--bpg-font-body-line-height);
+  letter-spacing: var(--bpg-font-body-spacing);
+  color: var(--bpg-text-primary);
+  background-color: var(--bpg-white);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--bpg-font-heading);
+  font-weight: var(--bpg-font-heading-weight);
+  font-style: var(--bpg-font-heading-style);
+  line-height: var(--bpg-font-heading-line-height);
+  letter-spacing: var(--bpg-font-heading-spacing);
+  text-transform: var(--bpg-font-heading-transform);
+  color: var(--bpg-text-primary);
+  margin: 0 0 var(--bpg-space-4);
+}
+
+h1 { font-size: var(--bpg-font-size-h1); }
+h2 { font-size: var(--bpg-font-size-h2); }
+h3 { font-size: var(--bpg-font-size-h3); }
+h4 { font-size: var(--bpg-font-size-h4); }
+h5 { font-size: var(--bpg-font-size-h5); }
+h6 { font-size: var(--bpg-font-size-h6); }
+
+p {
+  margin: 0 0 var(--bpg-space-4);
+  font-size: var(--bpg-font-size-normal);
+}
+
+a {
+  color: var(--bpg-primary);
+  text-decoration: none;
+  transition: color var(--bpg-duration-fast) var(--bpg-ease-default);
+}
+
+a:hover {
+  color: var(--bpg-primary-hover);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.bpg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bpg-space-2);
+  padding: var(--bpg-space-3) var(--bpg-space-6);
+  font-family: var(--bpg-font-body);
+  font-size: var(--bpg-font-size-normal);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--bpg-radius-md);
+  cursor: pointer;
+  transition: all var(--bpg-duration-fast) var(--bpg-ease-default);
+}
+
+.bpg-btn-primary {
+  background-color: var(--bpg-primary);
+  color: var(--bpg-text-inverse);
+  border-color: var(--bpg-primary);
+}
+
+.bpg-btn-primary:hover {
+  background-color: var(--bpg-primary-hover);
+  border-color: var(--bpg-primary-hover);
+}
+
+.bpg-btn-secondary {
+  background-color: var(--bpg-secondary);
+  color: var(--bpg-primary);
+  border-color: var(--bpg-secondary);
+}
+
+.bpg-btn-secondary:hover {
+  background-color: var(--bpg-secondary-muted);
+  border-color: var(--bpg-secondary-muted);
+}
+
+.bpg-btn-outline {
+  background-color: transparent;
+  color: var(--bpg-primary);
+  border-color: var(--bpg-primary);
+}
+
+.bpg-btn-outline:hover {
+  background-color: var(--bpg-primary);
+  color: var(--bpg-text-inverse);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.bpg-text-primary { color: var(--bpg-primary); }
+.bpg-text-secondary { color: var(--bpg-text-secondary); }
+.bpg-text-muted { color: var(--bpg-text-muted); }
+
+.bpg-bg-primary { background-color: var(--bpg-primary); }
+.bpg-bg-secondary { background-color: var(--bpg-secondary); }
+.bpg-bg-white { background-color: var(--bpg-white); }
+
+.bpg-font-heading { font-family: var(--bpg-font-heading); }
+.bpg-font-body { font-family: var(--bpg-font-body); }

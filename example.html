@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="no" data-theme="bpg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Stylesheet - Showcase</title>
+  <link rel="stylesheet" href="bpg-brand.css">
+  <style>
+    /* ============================================
+       THEME SWITCHER
+       ============================================ */
+    .theme-switcher {
+      position: fixed;
+      top: var(--bpg-space-4);
+      right: var(--bpg-space-4);
+      z-index: 1000;
+      display: flex;
+      background: var(--bpg-white-pure);
+      border-radius: var(--bpg-radius-full);
+      padding: 4px;
+      box-shadow: var(--bpg-shadow-lg);
+    }
+
+    .theme-btn {
+      padding: var(--bpg-space-2) var(--bpg-space-4);
+      border: none;
+      background: transparent;
+      border-radius: var(--bpg-radius-full);
+      font-family: var(--bpg-font-body);
+      font-size: var(--bpg-font-size-small);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--bpg-duration-fast) var(--bpg-ease-default);
+      color: var(--bpg-text-muted);
+    }
+
+    .theme-btn:hover {
+      color: var(--bpg-text-primary);
+    }
+
+    .theme-btn.active {
+      background: var(--bpg-primary);
+      color: var(--bpg-text-inverse);
+    }
+
+    .theme-btn .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .theme-btn[data-theme="bpg"] .dot { background: #1F4739; }
+    .theme-btn[data-theme="metis"] .dot { background: #EE2737; }
+    .theme-btn[data-theme="privatist"] .dot { background: #00b398; }
+
+    /* ============================================
+       METIS VGS THEME OVERRIDE
+       ============================================ */
+    [data-theme="metis"] {
+      --bpg-primary: #EE2737;
+      --bpg-primary-hover: #C41E2D;
+      --bpg-primary-light: #F04D5A;
+      --bpg-primary-rgb: 238, 39, 55;
+
+      --bpg-secondary: #F6E948;
+      --bpg-secondary-muted: #E5D83A;
+      --bpg-secondary-rgb: 246, 233, 72;
+
+      --bpg-dark: #2a1a1a;
+      --bpg-teal: #5a2a2a;
+      --bpg-green: #EE2737;
+      --bpg-peach: #F9B8BB;
+      --bpg-peach-light: #FDE8E9;
+
+      --bpg-border-subtle: rgba(238, 39, 55, 0.08);
+      --bpg-border-default: rgba(238, 39, 55, 0.12);
+      --bpg-border-strong: rgba(238, 39, 55, 0.2);
+
+      --bpg-shadow-xs: 0 1px 2px rgba(238, 39, 55, 0.04);
+      --bpg-shadow-sm: 0 2px 4px rgba(238, 39, 55, 0.06);
+      --bpg-shadow-md: 0 4px 12px rgba(238, 39, 55, 0.08);
+      --bpg-shadow-lg: 0 8px 24px rgba(238, 39, 55, 0.12);
+      --bpg-shadow-xl: 0 16px 48px rgba(238, 39, 55, 0.16);
+    }
+
+    /* ============================================
+       METIS PRIVATIST THEME OVERRIDE
+       ============================================ */
+    [data-theme="privatist"] {
+      --bpg-primary: #00b398;
+      --bpg-primary-hover: #009980;
+      --bpg-primary-light: #33c4ad;
+      --bpg-primary-rgb: 0, 179, 152;
+
+      --bpg-secondary: #f9f3e6;
+      --bpg-secondary-muted: #f0e8d6;
+      --bpg-secondary-rgb: 249, 243, 230;
+
+      --bpg-dark: #1a2a2a;
+      --bpg-teal: #00b398;
+      --bpg-green: #00b398;
+      --bpg-peach: #d7edec;
+      --bpg-peach-light: #e8f5f4;
+
+      --bpg-border-subtle: rgba(0, 179, 152, 0.08);
+      --bpg-border-default: rgba(0, 179, 152, 0.12);
+      --bpg-border-strong: rgba(0, 179, 152, 0.2);
+
+      --bpg-shadow-xs: 0 1px 2px rgba(0, 179, 152, 0.04);
+      --bpg-shadow-sm: 0 2px 4px rgba(0, 179, 152, 0.06);
+      --bpg-shadow-md: 0 4px 12px rgba(0, 179, 152, 0.08);
+      --bpg-shadow-lg: 0 8px 24px rgba(0, 179, 152, 0.12);
+      --bpg-shadow-xl: 0 16px 48px rgba(0, 179, 152, 0.16);
+    }
+
+    /* ============================================
+       SHOWCASE STYLES
+       ============================================ */
+    .showcase-section {
+      padding: var(--bpg-space-12) var(--bpg-space-8);
+      border-bottom: 1px solid var(--bpg-border-color);
+    }
+    .showcase-section:last-child {
+      border-bottom: none;
+    }
+    .showcase-title {
+      font-size: var(--bpg-font-size-small);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bpg-text-muted);
+      margin-bottom: var(--bpg-space-6);
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--bpg-space-4);
+    }
+    .color-swatch {
+      border-radius: var(--bpg-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--bpg-shadow-sm);
+    }
+    .color-swatch-preview {
+      height: 80px;
+      transition: background var(--bpg-duration-normal) var(--bpg-ease-default);
+    }
+    .color-swatch-info {
+      padding: var(--bpg-space-3);
+      background: var(--bpg-white-pure);
+    }
+    .color-swatch-name {
+      font-size: var(--bpg-font-size-small);
+      font-weight: 500;
+      margin-bottom: var(--bpg-space-1);
+    }
+    .color-swatch-value {
+      font-family: var(--bpg-font-mono);
+      font-size: var(--bpg-font-size-tiny);
+      color: var(--bpg-text-muted);
+      transition: color var(--bpg-duration-fast);
+    }
+    .typography-sample {
+      margin-bottom: var(--bpg-space-6);
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--bpg-space-4);
+      margin-bottom: var(--bpg-space-6);
+    }
+    .spacing-demo {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--bpg-space-2);
+    }
+    .spacing-box {
+      background: var(--bpg-secondary);
+      border-radius: var(--bpg-radius-sm);
+      transition: background var(--bpg-duration-normal) var(--bpg-ease-default);
+    }
+    .spacing-label {
+      font-family: var(--bpg-font-mono);
+      font-size: var(--bpg-font-size-tiny);
+      color: var(--bpg-text-muted);
+      text-align: center;
+      margin-top: var(--bpg-space-2);
+    }
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--bpg-space-6);
+    }
+    .shadow-box {
+      background: var(--bpg-white-pure);
+      padding: var(--bpg-space-6);
+      border-radius: var(--bpg-radius-lg);
+      text-align: center;
+      transition: box-shadow var(--bpg-duration-normal) var(--bpg-ease-default),
+                  background var(--bpg-duration-normal) var(--bpg-ease-default);
+    }
+    .shadow-box span {
+      font-family: var(--bpg-font-mono);
+      font-size: var(--bpg-font-size-tiny);
+      color: var(--bpg-text-muted);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--bpg-primary) 0%, var(--bpg-primary-light) 100%);
+      color: var(--bpg-text-inverse);
+      padding: var(--bpg-space-20) var(--bpg-space-8);
+      text-align: center;
+      transition: background var(--bpg-duration-normal) var(--bpg-ease-default);
+    }
+    .hero h1 {
+      color: var(--bpg-text-inverse);
+      margin-bottom: var(--bpg-space-4);
+    }
+    .hero p {
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero .school-name {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button class="theme-btn active" data-theme="bpg" onclick="setTheme('bpg')">
+      <span class="dot"></span>BPG
+    </button>
+    <button class="theme-btn" data-theme="metis" onclick="setTheme('metis')">
+      <span class="dot"></span>Metis VGS
+    </button>
+    <button class="theme-btn" data-theme="privatist" onclick="setTheme('privatist')">
+      <span class="dot"></span>Privatist
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Brand Stylesheet</h1>
+      <p>Design system for <span class="school-name" id="school-name">Bergen Private Gymnas</span>. Farger, typografi og komponenter samlet i ett sted.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Fargepalett -->
+    <section class="showcase-section">
+      <div class="showcase-title">Fargepalett</div>
+
+      <h3>Primærfarger</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-primary);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary</div>
+            <div class="color-swatch-value" data-bpg="#1F4739" data-metis="#EE2737" data-privatist="#00b398">#1F4739</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-primary-hover);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary Hover</div>
+            <div class="color-swatch-value" data-bpg="#163529" data-metis="#C41E2D" data-privatist="#009980">#163529</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-primary-light);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary Light</div>
+            <div class="color-swatch-value" data-bpg="#2d6350" data-metis="#F04D5A" data-privatist="#33c4ad">#2d6350</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--bpg-space-8);">Sekundærfarger</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-secondary);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Secondary</div>
+            <div class="color-swatch-value" data-bpg="#E8F5A3" data-metis="#F6E948" data-privatist="#f9f3e6">#E8F5A3</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-secondary-muted);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Secondary Muted</div>
+            <div class="color-swatch-value" data-bpg="#d4e88f" data-metis="#E5D83A" data-privatist="#f0e8d6">#d4e88f</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--bpg-space-8);">Utvidet palett</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-dark);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Dark</div>
+            <div class="color-swatch-value" data-bpg="#1a3a3a" data-metis="#2a1a1a" data-privatist="#1a2a2a">#1a3a3a</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-peach);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Peach / Light Accent</div>
+            <div class="color-swatch-value" data-bpg="#f5d5c8" data-metis="#F9B8BB" data-privatist="#d7edec">#f5d5c8</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-peach-light);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Peach Light</div>
+            <div class="color-swatch-value" data-bpg="#faf0eb" data-metis="#FDE8E9" data-privatist="#e8f5f4">#faf0eb</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--bpg-space-8);">Gråtoner</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-gray-100);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 100</div>
+            <div class="color-swatch-value">#f5f5f5</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-gray-300);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 300</div>
+            <div class="color-swatch-value">#d0d0d0</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-gray-500);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 500</div>
+            <div class="color-swatch-value">#737373</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-gray-700);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 700</div>
+            <div class="color-swatch-value">#3e3e3e</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--bpg-gray-900);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 900</div>
+            <div class="color-swatch-value">#1a1a1a</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typografi -->
+    <section class="showcase-section">
+      <div class="showcase-title">Typografi</div>
+
+      <div class="typography-sample">
+        <h1>Heading 1 - Jubilat</h1>
+        <h2>Heading 2 - Jubilat</h2>
+        <h3>Heading 3 - Jubilat</h3>
+        <h4>Heading 4 - Jubilat</h4>
+        <h5>Heading 5 - Jubilat</h5>
+        <h6>Heading 6 - Jubilat</h6>
+      </div>
+
+      <div class="typography-sample">
+        <p style="font-size: var(--bpg-font-size-large);">
+          <strong>Large text (1.4rem):</strong> <span id="school-desc-1">Bergen Private Gymnas</span> er en videregående skole som tilbyr studieforberedende utdanningsprogram.
+        </p>
+        <p>
+          <strong>Normal text (1.1rem):</strong> Skolen ligger i <span id="school-location">Bergen sentrum</span> og har et bredt tilbud av programfag innen realfag, språk, samfunnsfag og økonomi.
+        </p>
+        <p style="font-size: var(--bpg-font-size-small);">
+          <strong>Small text (0.9rem):</strong> Elevene kan velge mellom mange spennende fag og fordypninger.
+        </p>
+      </div>
+
+      <div class="typography-sample">
+        <p>Her er en <a href="#">lenke i teksten</a> som bruker primærfargen.</p>
+      </div>
+    </section>
+
+    <!-- Knapper -->
+    <section class="showcase-section">
+      <div class="showcase-title">Knapper</div>
+
+      <div class="button-row">
+        <button class="bpg-btn bpg-btn-primary">Primary Button</button>
+        <button class="bpg-btn bpg-btn-secondary">Secondary Button</button>
+        <button class="bpg-btn bpg-btn-outline">Outline Button</button>
+      </div>
+
+      <div class="button-row">
+        <a href="#" class="bpg-btn bpg-btn-primary">Primary Link</a>
+        <a href="#" class="bpg-btn bpg-btn-secondary">Secondary Link</a>
+        <a href="#" class="bpg-btn bpg-btn-outline">Outline Link</a>
+      </div>
+    </section>
+
+    <!-- Shadows -->
+    <section class="showcase-section">
+      <div class="showcase-title">Skygger</div>
+
+      <div class="shadow-grid">
+        <div class="shadow-box" style="box-shadow: var(--bpg-shadow-xs);">
+          <span>shadow-xs</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--bpg-shadow-sm);">
+          <span>shadow-sm</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--bpg-shadow-md);">
+          <span>shadow-md</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--bpg-shadow-lg);">
+          <span>shadow-lg</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--bpg-shadow-xl);">
+          <span>shadow-xl</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing -->
+    <section class="showcase-section">
+      <div class="showcase-title">Spacing</div>
+
+      <div class="spacing-demo">
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-1); height: var(--bpg-space-1);"></div>
+          <div class="spacing-label">1</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-2); height: var(--bpg-space-2);"></div>
+          <div class="spacing-label">2</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-3); height: var(--bpg-space-3);"></div>
+          <div class="spacing-label">3</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-4); height: var(--bpg-space-4);"></div>
+          <div class="spacing-label">4</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-6); height: var(--bpg-space-6);"></div>
+          <div class="spacing-label">6</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-8); height: var(--bpg-space-8);"></div>
+          <div class="spacing-label">8</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-12); height: var(--bpg-space-12);"></div>
+          <div class="spacing-label">12</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--bpg-space-16); height: var(--bpg-space-16);"></div>
+          <div class="spacing-label">16</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Border Radius -->
+    <section class="showcase-section">
+      <div class="showcase-title">Border Radius</div>
+
+      <div class="shadow-grid">
+        <div class="shadow-box" style="border-radius: var(--bpg-radius-sm); background: var(--bpg-secondary);">
+          <span>radius-sm (4px)</span>
+        </div>
+        <div class="shadow-box" style="border-radius: var(--bpg-radius-md); background: var(--bpg-secondary);">
+          <span>radius-md (8px)</span>
+        </div>
+        <div class="shadow-box" style="border-radius: var(--bpg-radius-lg); background: var(--bpg-secondary);">
+          <span>radius-lg (12px)</span>
+        </div>
+        <div class="shadow-box" style="border-radius: var(--bpg-radius-xl); background: var(--bpg-secondary);">
+          <span>radius-xl (16px)</span>
+        </div>
+        <div class="shadow-box" style="border-radius: var(--bpg-radius-full); background: var(--bpg-secondary); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+          <span>full</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--bpg-gray-100); padding: var(--bpg-space-8); text-align: center; color: var(--bpg-text-muted);">
+    <p style="margin: 0;" id="footer-text">BPG Brand Stylesheet v1.0 | Bergen Private Gymnas</p>
+  </footer>
+
+  <script>
+    const themes = {
+      bpg: {
+        name: 'Bergen Private Gymnas',
+        location: 'Bergen sentrum',
+        footer: 'BPG Brand Stylesheet v1.0 | Bergen Private Gymnas'
+      },
+      metis: {
+        name: 'Metis Videregående',
+        location: 'Oslo',
+        footer: 'Metis Brand Stylesheet v1.0 | Metis Videregående'
+      },
+      privatist: {
+        name: 'Metis Privatist',
+        location: 'Oslo',
+        footer: 'Metis Privatist Stylesheet v1.0 | Metis Privatist'
+      }
+    };
+
+    function setTheme(theme) {
+      // Update data-theme attribute
+      document.documentElement.setAttribute('data-theme', theme);
+
+      // Update button states
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === theme);
+      });
+
+      // Update color values in swatches
+      document.querySelectorAll('.color-swatch-value[data-' + theme + ']').forEach(el => {
+        el.textContent = el.dataset[theme];
+      });
+
+      // Update text content
+      const t = themes[theme];
+      document.getElementById('school-name').textContent = t.name;
+      document.getElementById('school-desc-1').textContent = t.name;
+      document.getElementById('school-location').textContent = t.location;
+      document.getElementById('footer-text').textContent = t.footer;
+
+      // Update page title
+      document.title = `${t.name} - Brand Stylesheet`;
+
+      // Save preference
+      localStorage.setItem('preferred-theme', theme);
+    }
+
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('preferred-theme') || 'bpg';
+      setTheme(savedTheme);
+    });
+  </script>
+
+</body>
+</html>

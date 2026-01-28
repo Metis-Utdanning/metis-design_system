@@ -1,0 +1,233 @@
+/**
+ * Metis Design System - Base CSS
+ *
+ * Inneholder: Shared tokens + Base styles
+ * Versjon: 1.0.0
+ *
+ * BRUK: Inkluder denne sammen med en tema-fil (f.eks. themes/bpg.css)
+ */
+
+/* ============================================
+   SHARED TOKENS
+   ============================================ */
+
+:root {
+  /* Nøytrale farger */
+  --metis-white: #f4f4f6;
+  --metis-white-pure: #ffffff;
+  --metis-black: #000000;
+  --metis-gray-50: #fafafa;
+  --metis-gray-100: #f5f5f5;
+  --metis-gray-200: #e7e7e7;
+  --metis-gray-300: #d0d0d0;
+  --metis-gray-400: #a9a9a9;
+  --metis-gray-500: #737373;
+  --metis-gray-600: #5a5a5a;
+  --metis-gray-700: #3e3e3e;
+  --metis-gray-800: #272727;
+  --metis-gray-900: #1a1a1a;
+
+  /* Typografi - Fonts */
+  --metis-font-heading: "jubilat", Georgia, "Times New Roman", serif;
+  --metis-font-heading-weight: 200;
+  --metis-font-heading-style: normal;
+  --metis-font-heading-transform: none;
+  --metis-font-heading-spacing: 0em;
+  --metis-font-heading-line-height: 1.4;
+
+  --metis-font-body: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --metis-font-body-weight: 300;
+  --metis-font-body-style: normal;
+  --metis-font-body-transform: none;
+  --metis-font-body-spacing: 0em;
+  --metis-font-body-line-height: 1.8;
+
+  --metis-font-meta: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --metis-font-meta-weight: 400;
+  --metis-font-meta-spacing: 0.01em;
+  --metis-font-meta-line-height: 1;
+
+  --metis-font-mono: "SF Mono", Monaco, "Cascadia Code", Consolas, monospace;
+
+  /* Typografi - Størrelser */
+  --metis-font-size-base: 16px;
+  --metis-font-size-h1: 4rem;
+  --metis-font-size-h2: 2.8rem;
+  --metis-font-size-h3: 2.2rem;
+  --metis-font-size-h4: 1.6rem;
+  --metis-font-size-h5: 1.25rem;
+  --metis-font-size-h6: 1.1rem;
+  --metis-font-size-large: 1.4rem;
+  --metis-font-size-normal: 1.1rem;
+  --metis-font-size-small: 0.9rem;
+  --metis-font-size-tiny: 0.75rem;
+
+  /* Spacing */
+  --metis-space-1: 0.25rem;
+  --metis-space-2: 0.5rem;
+  --metis-space-3: 0.75rem;
+  --metis-space-4: 1rem;
+  --metis-space-5: 1.25rem;
+  --metis-space-6: 1.5rem;
+  --metis-space-8: 2rem;
+  --metis-space-10: 2.5rem;
+  --metis-space-12: 3rem;
+  --metis-space-16: 4rem;
+  --metis-space-20: 5rem;
+
+  /* Border radius */
+  --metis-radius-sm: 4px;
+  --metis-radius-md: 8px;
+  --metis-radius-lg: 12px;
+  --metis-radius-xl: 16px;
+  --metis-radius-2xl: 24px;
+  --metis-radius-full: 9999px;
+
+  /* Transitions */
+  --metis-ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --metis-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --metis-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --metis-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --metis-duration-fast: 150ms;
+  --metis-duration-normal: 250ms;
+  --metis-duration-slow: 400ms;
+
+  /* Z-index */
+  --metis-z-base: 0;
+  --metis-z-dropdown: 100;
+  --metis-z-sticky: 200;
+  --metis-z-modal-backdrop: 900;
+  --metis-z-modal: 1000;
+  --metis-z-tooltip: 1100;
+
+  /* Border color */
+  --metis-border-color: #e7e7e7;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+html {
+  font-size: var(--metis-font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--metis-font-body);
+  font-weight: var(--metis-font-body-weight);
+  font-style: var(--metis-font-body-style);
+  line-height: var(--metis-font-body-line-height);
+  letter-spacing: var(--metis-font-body-spacing);
+  color: var(--metis-text-primary);
+  background-color: var(--metis-white);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--metis-font-heading);
+  font-weight: var(--metis-font-heading-weight);
+  font-style: var(--metis-font-heading-style);
+  line-height: var(--metis-font-heading-line-height);
+  letter-spacing: var(--metis-font-heading-spacing);
+  text-transform: var(--metis-font-heading-transform);
+  color: var(--metis-text-primary);
+  margin: 0 0 var(--metis-space-4);
+}
+
+h1 { font-size: var(--metis-font-size-h1); }
+h2 { font-size: var(--metis-font-size-h2); }
+h3 { font-size: var(--metis-font-size-h3); }
+h4 { font-size: var(--metis-font-size-h4); }
+h5 { font-size: var(--metis-font-size-h5); }
+h6 { font-size: var(--metis-font-size-h6); }
+
+p {
+  margin: 0 0 var(--metis-space-4);
+  font-size: var(--metis-font-size-normal);
+}
+
+a {
+  color: var(--metis-primary);
+  text-decoration: none;
+  transition: color var(--metis-duration-fast) var(--metis-ease-default);
+}
+
+a:hover { color: var(--metis-primary-hover); }
+
+/* Buttons */
+.metis-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--metis-space-2);
+  padding: var(--metis-space-3) var(--metis-space-6);
+  font-family: var(--metis-font-body);
+  font-size: var(--metis-font-size-normal);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--metis-radius-md);
+  cursor: pointer;
+  transition: all var(--metis-duration-fast) var(--metis-ease-default);
+}
+
+.metis-btn:focus { outline: 2px solid var(--metis-primary); outline-offset: 2px; }
+
+.metis-btn-primary {
+  background-color: var(--metis-primary);
+  color: var(--metis-text-inverse);
+  border-color: var(--metis-primary);
+}
+.metis-btn-primary:hover {
+  background-color: var(--metis-primary-hover);
+  border-color: var(--metis-primary-hover);
+}
+
+.metis-btn-secondary {
+  background-color: var(--metis-secondary);
+  color: var(--metis-primary);
+  border-color: var(--metis-secondary);
+}
+.metis-btn-secondary:hover {
+  background-color: var(--metis-secondary-muted);
+  border-color: var(--metis-secondary-muted);
+}
+
+.metis-btn-outline {
+  background-color: transparent;
+  color: var(--metis-primary);
+  border-color: var(--metis-primary);
+}
+.metis-btn-outline:hover {
+  background-color: var(--metis-primary);
+  color: var(--metis-text-inverse);
+}
+
+/* Cards */
+.metis-card {
+  background: var(--metis-white-pure);
+  border-radius: var(--metis-radius-lg);
+  box-shadow: var(--metis-shadow-sm);
+  overflow: hidden;
+}
+.metis-card-body { padding: var(--metis-space-6); }
+.metis-card-header { padding: var(--metis-space-4) var(--metis-space-6); border-bottom: 1px solid var(--metis-border-color); }
+.metis-card-footer { padding: var(--metis-space-4) var(--metis-space-6); border-top: 1px solid var(--metis-border-color); background: var(--metis-gray-50); }
+
+/* Utility classes */
+.metis-text-primary { color: var(--metis-primary); }
+.metis-text-secondary { color: var(--metis-text-secondary); }
+.metis-text-muted { color: var(--metis-text-muted); }
+.metis-bg-primary { background-color: var(--metis-primary); }
+.metis-bg-secondary { background-color: var(--metis-secondary); }
+.metis-bg-white { background-color: var(--metis-white); }
+.metis-font-heading { font-family: var(--metis-font-heading); }
+.metis-font-body { font-family: var(--metis-font-body); }
+.metis-text-large { font-size: var(--metis-font-size-large); }
+.metis-text-normal { font-size: var(--metis-font-size-normal); }
+.metis-text-small { font-size: var(--metis-font-size-small); }
+.metis-text-tiny { font-size: var(--metis-font-size-tiny); }

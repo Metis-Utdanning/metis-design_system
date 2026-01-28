@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="no" data-theme="bpg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metis Design System - Demo</title>
+
+  <!-- Metis Design System -->
+  <link rel="stylesheet" href="../dist/metis-base.css">
+  <link rel="stylesheet" href="../dist/themes/bpg.css" id="theme-css">
+
+  <style>
+    /* ============================================
+       THEME SWITCHER
+       ============================================ */
+    .theme-switcher {
+      position: fixed;
+      top: var(--metis-space-4);
+      right: var(--metis-space-4);
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: var(--metis-white-pure);
+      border-radius: var(--metis-radius-full);
+      padding: 4px;
+      box-shadow: var(--metis-shadow-lg);
+      max-width: 400px;
+    }
+
+    .theme-btn {
+      padding: var(--metis-space-2) var(--metis-space-4);
+      border: none;
+      background: transparent;
+      border-radius: var(--metis-radius-full);
+      font-family: var(--metis-font-body);
+      font-size: var(--metis-font-size-small);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--metis-duration-fast) var(--metis-ease-default);
+      color: var(--metis-text-muted);
+      white-space: nowrap;
+    }
+
+    .theme-btn:hover {
+      color: var(--metis-text-primary);
+    }
+
+    .theme-btn.active {
+      background: var(--metis-primary);
+      color: var(--metis-text-inverse);
+    }
+
+    .theme-btn .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .theme-btn .status {
+      font-size: 10px;
+      margin-left: 4px;
+      opacity: 0.7;
+    }
+
+    .theme-btn[data-theme="bpg"] .dot { background: #1F4739; }
+    .theme-btn[data-theme="metis-vgs"] .dot { background: #EE2737; }
+    .theme-btn[data-theme="privatist"] .dot { background: #00b398; }
+    .theme-btn[data-theme="privatlarer"] .dot { background: #FF8000; }
+    .theme-btn[data-theme="metis"] .dot { background: #188AAD; }
+
+    /* ============================================
+       DEMO STYLES
+       ============================================ */
+    .showcase-section {
+      padding: var(--metis-space-12) var(--metis-space-8);
+      border-bottom: 1px solid var(--metis-border-color);
+    }
+    .showcase-section:last-child { border-bottom: none; }
+
+    .showcase-title {
+      font-size: var(--metis-font-size-small);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--metis-text-muted);
+      margin-bottom: var(--metis-space-6);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--metis-space-4);
+    }
+
+    .color-swatch {
+      border-radius: var(--metis-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--metis-shadow-sm);
+    }
+
+    .color-swatch-preview {
+      height: 80px;
+      transition: background var(--metis-duration-normal) var(--metis-ease-default);
+    }
+
+    .color-swatch-info {
+      padding: var(--metis-space-3);
+      background: var(--metis-white-pure);
+    }
+
+    .color-swatch-name {
+      font-size: var(--metis-font-size-small);
+      font-weight: 500;
+      margin-bottom: var(--metis-space-1);
+    }
+
+    .color-swatch-value {
+      font-family: var(--metis-font-mono);
+      font-size: var(--metis-font-size-tiny);
+      color: var(--metis-text-muted);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--metis-space-4);
+      margin-bottom: var(--metis-space-6);
+    }
+
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--metis-space-6);
+    }
+
+    .shadow-box {
+      background: var(--metis-white-pure);
+      padding: var(--metis-space-6);
+      border-radius: var(--metis-radius-lg);
+      text-align: center;
+      transition: all var(--metis-duration-normal) var(--metis-ease-default);
+    }
+
+    .shadow-box span {
+      font-family: var(--metis-font-mono);
+      font-size: var(--metis-font-size-tiny);
+      color: var(--metis-text-muted);
+    }
+
+    .spacing-demo {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--metis-space-2);
+    }
+
+    .spacing-box {
+      background: var(--metis-secondary);
+      border-radius: var(--metis-radius-sm);
+      transition: background var(--metis-duration-normal) var(--metis-ease-default);
+    }
+
+    .spacing-label {
+      font-family: var(--metis-font-mono);
+      font-size: var(--metis-font-size-tiny);
+      color: var(--metis-text-muted);
+      text-align: center;
+      margin-top: var(--metis-space-2);
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--metis-primary) 0%, var(--metis-primary-light) 100%);
+      color: var(--metis-text-inverse);
+      padding: var(--metis-space-20) var(--metis-space-8);
+      text-align: center;
+      transition: background var(--metis-duration-normal) var(--metis-ease-default);
+    }
+
+    .hero h1 { color: var(--metis-text-inverse); margin-bottom: var(--metis-space-4); }
+    .hero p { opacity: 0.9; max-width: 600px; margin: 0 auto; }
+    .hero .school-name { font-weight: 600; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--metis-radius-full);
+      font-size: var(--metis-font-size-tiny);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .status-badge.production { background: #dcfce7; color: #166534; }
+    .status-badge.placeholder { background: #fef3c7; color: #92400e; }
+  </style>
+</head>
+<body>
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button class="theme-btn active" data-theme="bpg" onclick="setTheme('bpg')">
+      <span class="dot"></span>BPG
+    </button>
+    <button class="theme-btn" data-theme="metis-vgs" onclick="setTheme('metis-vgs')">
+      <span class="dot"></span>Metis VGS
+    </button>
+    <button class="theme-btn" data-theme="privatist" onclick="setTheme('privatist')">
+      <span class="dot"></span>Privatist
+    </button>
+    <button class="theme-btn" data-theme="privatlarer" onclick="setTheme('privatlarer')">
+      <span class="dot"></span>Privatlærer
+    </button>
+    <button class="theme-btn" data-theme="metis" onclick="setTheme('metis')">
+      <span class="dot"></span>Metis
+    </button>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Metis Design System</h1>
+      <p>
+        Tema for <span class="school-name" id="school-name">Bergen Private Gymnas</span>.
+        <span class="status-badge production" id="status-badge">Produksjon</span>
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Fargepalett -->
+    <section class="showcase-section">
+      <div class="showcase-title">Fargepalett</div>
+
+      <h3>Primærfarger</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-primary);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary</div>
+            <div class="color-swatch-value" id="color-primary">#1F4739</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-primary-hover);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary Hover</div>
+            <div class="color-swatch-value" id="color-primary-hover">#163529</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-primary-light);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Primary Light</div>
+            <div class="color-swatch-value" id="color-primary-light">#2d6350</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--metis-space-8);">Sekundærfarger</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-secondary);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Secondary</div>
+            <div class="color-swatch-value" id="color-secondary">#E8F5A3</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-secondary-muted);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Secondary Muted</div>
+            <div class="color-swatch-value" id="color-secondary-muted">#d4e88f</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--metis-space-8);">Utvidet palett</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-dark);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Dark</div>
+            <div class="color-swatch-value" id="color-dark">#1a3a3a</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-peach);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Peach</div>
+            <div class="color-swatch-value" id="color-peach">#f5d5c8</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-peach-light);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Peach Light</div>
+            <div class="color-swatch-value" id="color-peach-light">#faf0eb</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: var(--metis-space-8);">Gråtoner (felles)</h3>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-gray-100);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 100</div>
+            <div class="color-swatch-value">#f5f5f5</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-gray-300);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 300</div>
+            <div class="color-swatch-value">#d0d0d0</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-gray-500);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 500</div>
+            <div class="color-swatch-value">#737373</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-gray-700);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 700</div>
+            <div class="color-swatch-value">#3e3e3e</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch-preview" style="background: var(--metis-gray-900);"></div>
+          <div class="color-swatch-info">
+            <div class="color-swatch-name">Gray 900</div>
+            <div class="color-swatch-value">#1a1a1a</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typografi -->
+    <section class="showcase-section">
+      <div class="showcase-title">Typografi</div>
+
+      <div style="margin-bottom: var(--metis-space-6);">
+        <h1>Heading 1 - Jubilat</h1>
+        <h2>Heading 2 - Jubilat</h2>
+        <h3>Heading 3 - Jubilat</h3>
+        <h4>Heading 4 - Jubilat</h4>
+        <h5>Heading 5 - Jubilat</h5>
+        <h6>Heading 6 - Jubilat</h6>
+      </div>
+
+      <div>
+        <p class="metis-text-large"><strong>Large text (1.4rem):</strong> <span id="school-desc">Bergen Private Gymnas</span> er en videregående skole.</p>
+        <p><strong>Normal text (1.1rem):</strong> Skolen tilbyr studieforberedende utdanningsprogram med et bredt fagtilbud.</p>
+        <p class="metis-text-small"><strong>Small text (0.9rem):</strong> Elevene kan velge mellom mange spennende fag.</p>
+        <p>Her er en <a href="#">lenke i teksten</a> som bruker primærfargen.</p>
+      </div>
+    </section>
+
+    <!-- Knapper -->
+    <section class="showcase-section">
+      <div class="showcase-title">Knapper</div>
+
+      <div class="button-row">
+        <button class="metis-btn metis-btn-primary">Primary Button</button>
+        <button class="metis-btn metis-btn-secondary">Secondary Button</button>
+        <button class="metis-btn metis-btn-outline">Outline Button</button>
+      </div>
+
+      <div class="button-row">
+        <a href="#" class="metis-btn metis-btn-primary">Primary Link</a>
+        <a href="#" class="metis-btn metis-btn-secondary">Secondary Link</a>
+        <a href="#" class="metis-btn metis-btn-outline">Outline Link</a>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="showcase-section">
+      <div class="showcase-title">Kort</div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--metis-space-6);">
+        <div class="metis-card">
+          <div class="metis-card-header">
+            <h4 style="margin: 0;">Kort med header</h4>
+          </div>
+          <div class="metis-card-body">
+            <p style="margin: 0;">Dette er innholdet i kortet. Kort brukes til å gruppere relatert innhold.</p>
+          </div>
+        </div>
+
+        <div class="metis-card">
+          <div class="metis-card-body">
+            <h4>Enkelt kort</h4>
+            <p style="margin: 0;">Et kort uten header eller footer.</p>
+          </div>
+        </div>
+
+        <div class="metis-card">
+          <div class="metis-card-body">
+            <h4>Kort med footer</h4>
+            <p>Innhold her.</p>
+          </div>
+          <div class="metis-card-footer">
+            <button class="metis-btn metis-btn-primary" style="padding: var(--metis-space-2) var(--metis-space-4);">Handling</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shadows -->
+    <section class="showcase-section">
+      <div class="showcase-title">Skygger</div>
+
+      <div class="shadow-grid">
+        <div class="shadow-box" style="box-shadow: var(--metis-shadow-xs);"><span>shadow-xs</span></div>
+        <div class="shadow-box" style="box-shadow: var(--metis-shadow-sm);"><span>shadow-sm</span></div>
+        <div class="shadow-box" style="box-shadow: var(--metis-shadow-md);"><span>shadow-md</span></div>
+        <div class="shadow-box" style="box-shadow: var(--metis-shadow-lg);"><span>shadow-lg</span></div>
+        <div class="shadow-box" style="box-shadow: var(--metis-shadow-xl);"><span>shadow-xl</span></div>
+      </div>
+    </section>
+
+    <!-- Spacing -->
+    <section class="showcase-section">
+      <div class="showcase-title">Spacing</div>
+
+      <div class="spacing-demo">
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-1); height: var(--metis-space-1);"></div>
+          <div class="spacing-label">1</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-2); height: var(--metis-space-2);"></div>
+          <div class="spacing-label">2</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-4); height: var(--metis-space-4);"></div>
+          <div class="spacing-label">4</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-6); height: var(--metis-space-6);"></div>
+          <div class="spacing-label">6</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-8); height: var(--metis-space-8);"></div>
+          <div class="spacing-label">8</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-12); height: var(--metis-space-12);"></div>
+          <div class="spacing-label">12</div>
+        </div>
+        <div>
+          <div class="spacing-box" style="width: var(--metis-space-16); height: var(--metis-space-16);"></div>
+          <div class="spacing-label">16</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Border Radius -->
+    <section class="showcase-section">
+      <div class="showcase-title">Border Radius</div>
+
+      <div class="shadow-grid">
+        <div class="shadow-box" style="border-radius: var(--metis-radius-sm); background: var(--metis-secondary);"><span>sm (4px)</span></div>
+        <div class="shadow-box" style="border-radius: var(--metis-radius-md); background: var(--metis-secondary);"><span>md (8px)</span></div>
+        <div class="shadow-box" style="border-radius: var(--metis-radius-lg); background: var(--metis-secondary);"><span>lg (12px)</span></div>
+        <div class="shadow-box" style="border-radius: var(--metis-radius-xl); background: var(--metis-secondary);"><span>xl (16px)</span></div>
+        <div class="shadow-box" style="border-radius: var(--metis-radius-full); background: var(--metis-secondary); width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;"><span>full</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="background: var(--metis-gray-100); padding: var(--metis-space-8); text-align: center; color: var(--metis-text-muted);">
+    <p style="margin: 0;" id="footer-text">Metis Design System v1.0 | Bergen Private Gymnas</p>
+  </footer>
+
+  <script>
+    const themes = {
+      'bpg': {
+        name: 'Bergen Private Gymnas',
+        status: 'production',
+        colors: {
+          primary: '#1F4739', primaryHover: '#163529', primaryLight: '#2d6350',
+          secondary: '#E8F5A3', secondaryMuted: '#d4e88f',
+          dark: '#1a3a3a', peach: '#f5d5c8', peachLight: '#faf0eb'
+        }
+      },
+      'metis-vgs': {
+        name: 'Metis Videregående',
+        status: 'production',
+        colors: {
+          primary: '#EE2737', primaryHover: '#C41E2D', primaryLight: '#F04D5A',
+          secondary: '#F6E948', secondaryMuted: '#E5D83A',
+          dark: '#2a1a1a', peach: '#F9B8BB', peachLight: '#FDE8E9'
+        }
+      },
+      'privatist': {
+        name: 'Metis Privatist',
+        status: 'production',
+        colors: {
+          primary: '#00b398', primaryHover: '#009980', primaryLight: '#33c4ad',
+          secondary: '#f9f3e6', secondaryMuted: '#f0e8d6',
+          dark: '#1a2a2a', peach: '#d7edec', peachLight: '#e8f5f4'
+        }
+      },
+      'privatlarer': {
+        name: 'Metis Privatlærer',
+        status: 'production',
+        colors: {
+          primary: '#FF8000', primaryHover: '#E67300', primaryLight: '#FF9933',
+          secondary: '#18405F', secondaryMuted: '#1F5278',
+          dark: '#0F2A3D', peach: '#F9D4B3', peachLight: '#FDF0E3'
+        }
+      },
+      'metis': {
+        name: 'Metis Utdanning',
+        status: 'production',
+        colors: {
+          primary: '#188AAD', primaryHover: '#136D8A', primaryLight: '#7EB3C9',
+          secondary: '#D6E4EB', secondaryMuted: '#C4D7E0',
+          dark: '#0D4D61', peach: '#E8F2F6', peachLight: '#F4F9FB'
+        }
+      }
+    };
+
+    function setTheme(themeId) {
+      const theme = themes[themeId];
+      if (!theme) return;
+
+      // Bytt CSS-fil
+      const themeCss = document.getElementById('theme-css');
+      themeCss.href = `../dist/themes/${themeId}.css`;
+
+      // Oppdater data-theme
+      document.documentElement.setAttribute('data-theme', themeId);
+
+      // Oppdater knappene
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === themeId);
+      });
+
+      // Oppdater tekst
+      document.getElementById('school-name').textContent = theme.name;
+      document.getElementById('school-desc').textContent = theme.name;
+      document.getElementById('footer-text').textContent = `Metis Design System v1.0 | ${theme.name}`;
+
+      // Oppdater status-badge
+      const badge = document.getElementById('status-badge');
+      badge.textContent = theme.status === 'production' ? 'Produksjon' : 'Placeholder';
+      badge.className = `status-badge ${theme.status}`;
+
+      // Oppdater fargekoder
+      document.getElementById('color-primary').textContent = theme.colors.primary;
+      document.getElementById('color-primary-hover').textContent = theme.colors.primaryHover;
+      document.getElementById('color-primary-light').textContent = theme.colors.primaryLight;
+      document.getElementById('color-secondary').textContent = theme.colors.secondary;
+      document.getElementById('color-secondary-muted').textContent = theme.colors.secondaryMuted;
+      document.getElementById('color-dark').textContent = theme.colors.dark;
+      document.getElementById('color-peach').textContent = theme.colors.peach;
+      document.getElementById('color-peach-light').textContent = theme.colors.peachLight;
+
+      // Lagre preferanse
+      localStorage.setItem('metis-theme', themeId);
+    }
+
+    // Last lagret tema
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('metis-theme') || 'bpg';
+      setTheme(saved);
+    });
+  </script>
+
+</body>
+</html>
