@@ -24,8 +24,8 @@
 (function() {
   'use strict';
 
-  // CDN base URL - oppdater ved deploy
-  var CDN_BASE = 'https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist';
+  // CDN base URL
+  var CDN_BASE = 'https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist';
 
   // Tilgjengelige temaer
   var THEMES = {

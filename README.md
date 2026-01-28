@@ -2,7 +2,7 @@
 
 > **Design tokens og CSS-temaer for Metis Utdanning sine skoler og tjenester.**
 
-**[Se Live Demo](https://metis-utdanning.github.io/metis-design_system/)**
+**[Se Live Demo](https://metis-utdanning.github.io/metis-design_system/)** | **[GitHub Repo](https://github.com/Metis-Utdanning/metis-design_system)**
 
 ---
 
@@ -11,7 +11,7 @@
 ### Enkel integrasjon (Squarespace, statiske sider)
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist/loader.js"
+<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/loader.js"
         data-theme="bpg"></script>
 ```
 
@@ -19,10 +19,10 @@
 
 ```html
 <!-- Base-stiler (alltid inkluder denne) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist/metis-base.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/metis-base.css">
 
 <!-- Velg ett tema -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist/themes/bpg.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/themes/bpg.css">
 ```
 
 ### Programmatisk bytte
@@ -131,7 +131,7 @@ Se [docs/TOKENS.md](docs/TOKENS.md) for komplett referanse.
 2. Lim inn i **Header**:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist/loader.js"
+<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/loader.js"
         data-theme="bpg"></script>
 ```
 

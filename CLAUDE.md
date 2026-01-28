@@ -3,6 +3,7 @@
 > **STATUS:** Produksjon
 > **REPO:** https://github.com/Metis-Utdanning/metis-design_system
 > **DEMO:** https://metis-utdanning.github.io/metis-design_system/
+> **CDN:** https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/
 
 ---
 
@@ -183,7 +184,7 @@ dist/loader.js
 ### Bruke i ny app
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@latest/dist/loader.js"
+<script src="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/loader.js"
         data-theme="bpg"></script>
 ```
 
