@@ -2,35 +2,45 @@
  * Bergen Private Gymnas - Theme Tokens
  *
  * Tema-ID: bpg
- * Primærfarge: Mørkegrønn (#1F4739)
- * Sekundærfarge: Lime (#E8F5A3)
+ *
+ * Farger hentet fra: https://www.metisutdanning.no/merkevare
+ * Primærfarge: Forest green (#006241)
+ * Sekundærfarge: Light green (#d4e9e2)
+ * Aksentfarge: Yellow (#dff9ba)
  */
 
 [data-theme="bpg"],
 .theme-bpg {
   /* ============================================
-     PRIMÆRFARGER (mørkegrønn)
+     PRIMÆRFARGER (forest green - fra merkevare)
      ============================================ */
-  --metis-primary: #1F4739;
-  --metis-primary-hover: #163529;
-  --metis-primary-light: #2d6350;
-  --metis-primary-rgb: 31, 71, 57;
+  --metis-primary: #006241;
+  --metis-primary-hover: #004d33;
+  --metis-primary-light: #1a7a55;
+  --metis-primary-rgb: 0, 98, 65;
 
   /* ============================================
-     SEKUNDÆRFARGER (lime/accent)
+     SEKUNDÆRFARGER (light green - fra merkevare)
      ============================================ */
-  --metis-secondary: #E8F5A3;
-  --metis-secondary-muted: #d4e88f;
-  --metis-secondary-rgb: 232, 245, 163;
+  --metis-secondary: #d4e9e2;
+  --metis-secondary-muted: #bfddd3;
+  --metis-secondary-rgb: 212, 233, 226;
+
+  /* ============================================
+     AKSENTFARGER
+     ============================================ */
+  --metis-accent-yellow: #dff9ba;
+  --metis-accent-yellow-hover: #d0f09e;
+  --metis-accent-yellow-rgb: 223, 249, 186;
 
   /* ============================================
      UTVIDET PALETT
      ============================================ */
-  --metis-dark: #1a3a3a;
-  --metis-teal: #2a5a5a;
-  --metis-green: #5fa550;
-  --metis-peach: #f5d5c8;
-  --metis-peach-light: #faf0eb;
+  --metis-dark: #003d28;
+  --metis-teal: #006241;
+  --metis-green: #006241;
+  --metis-peach: #d4e9e2;
+  --metis-peach-light: #e8f4f0;
 
   /* ============================================
      TEKST
@@ -44,22 +54,22 @@
   /* ============================================
      HSL (for Squarespace-kompatibilitet)
      ============================================ */
-  --metis-primary-hsl: 156, 39%, 20%;
-  --metis-secondary-hsl: 73, 80%, 80%;
+  --metis-primary-hsl: 160, 100%, 19%;
+  --metis-secondary-hsl: 160, 35%, 87%;
 
   /* ============================================
      BORDERS (basert på primærfarge)
      ============================================ */
-  --metis-border-subtle: rgba(31, 71, 57, 0.08);
-  --metis-border-default: rgba(31, 71, 57, 0.12);
-  --metis-border-strong: rgba(31, 71, 57, 0.2);
+  --metis-border-subtle: rgba(0, 98, 65, 0.08);
+  --metis-border-default: rgba(0, 98, 65, 0.12);
+  --metis-border-strong: rgba(0, 98, 65, 0.2);
 
   /* ============================================
      SHADOWS (basert på primærfarge)
      ============================================ */
-  --metis-shadow-xs: 0 1px 2px rgba(31, 71, 57, 0.04);
-  --metis-shadow-sm: 0 2px 4px rgba(31, 71, 57, 0.06);
-  --metis-shadow-md: 0 4px 12px rgba(31, 71, 57, 0.08);
-  --metis-shadow-lg: 0 8px 24px rgba(31, 71, 57, 0.12);
-  --metis-shadow-xl: 0 16px 48px rgba(31, 71, 57, 0.16);
+  --metis-shadow-xs: 0 1px 2px rgba(0, 98, 65, 0.04);
+  --metis-shadow-sm: 0 2px 4px rgba(0, 98, 65, 0.06);
+  --metis-shadow-md: 0 4px 12px rgba(0, 98, 65, 0.08);
+  --metis-shadow-lg: 0 8px 24px rgba(0, 98, 65, 0.12);
+  --metis-shadow-xl: 0 16px 48px rgba(0, 98, 65, 0.16);
 }

@@ -4,36 +4,44 @@
  * Tema-ID: privatlarer
  * Dekker: MPL, MPLO, MPLS (alle privatlærer-enheter)
  *
- * Farger hentet fra: https://metispl.no/ (Squarespace site.css)
- * Primærfarge: Oransje (#FF8000)
- * Sekundærfarge: Mørk blå (#18405F)
+ * Farger hentet fra: https://www.metisutdanning.no/merkevare
+ * Primærfarge: Oransje (#ff8200)
+ * Sekundærfarge: Peach (#fabc7c)
+ * Aksentfarge: Gull (#f7ea48)
  */
 
 [data-theme="privatlarer"],
 .theme-privatlarer {
   /* ============================================
-     PRIMÆRFARGER (oransje - fra metispl.no)
+     PRIMÆRFARGER (oransje - fra merkevare)
      ============================================ */
-  --metis-primary: #FF8000;
-  --metis-primary-hover: #E67300;
-  --metis-primary-light: #FF9933;
-  --metis-primary-rgb: 255, 128, 0;
+  --metis-primary: #ff8200;
+  --metis-primary-hover: #e67400;
+  --metis-primary-light: #ff9b33;
+  --metis-primary-rgb: 255, 130, 0;
 
   /* ============================================
-     SEKUNDÆRFARGER (mørk blå - lightAccent fra metispl.no)
+     SEKUNDÆRFARGER (peach - fra merkevare)
      ============================================ */
-  --metis-secondary: #18405F;
-  --metis-secondary-muted: #1F5278;
-  --metis-secondary-rgb: 24, 64, 95;
+  --metis-secondary: #fabc7c;
+  --metis-secondary-muted: #f8a85c;
+  --metis-secondary-rgb: 250, 188, 124;
+
+  /* ============================================
+     AKSENTFARGER
+     ============================================ */
+  --metis-gold: #f7ea48;
+  --metis-gold-hover: #e5d93a;
+  --metis-gold-rgb: 247, 234, 72;
 
   /* ============================================
      UTVIDET PALETT
      ============================================ */
-  --metis-dark: #0F2A3D;
-  --metis-teal: #18405F;
-  --metis-green: #FF8000;
-  --metis-peach: #F9D4B3;           /* darkAccent fra metispl.no */
-  --metis-peach-light: #FDF0E3;
+  --metis-dark: #5c3a1a;
+  --metis-teal: #ff8200;
+  --metis-green: #ff8200;
+  --metis-peach: #fabc7c;
+  --metis-peach-light: #fde8d3;
 
   /* ============================================
      TEKST
@@ -47,22 +55,22 @@
   /* ============================================
      HSL (for Squarespace-kompatibilitet)
      ============================================ */
-  --metis-primary-hsl: 30, 100%, 50%;
-  --metis-secondary-hsl: 214, 60%, 23%;
+  --metis-primary-hsl: 31, 100%, 50%;
+  --metis-secondary-hsl: 30, 92%, 73%;
 
   /* ============================================
      BORDERS (basert på primærfarge)
      ============================================ */
-  --metis-border-subtle: rgba(255, 128, 0, 0.08);
-  --metis-border-default: rgba(255, 128, 0, 0.12);
-  --metis-border-strong: rgba(255, 128, 0, 0.2);
+  --metis-border-subtle: rgba(255, 130, 0, 0.08);
+  --metis-border-default: rgba(255, 130, 0, 0.12);
+  --metis-border-strong: rgba(255, 130, 0, 0.2);
 
   /* ============================================
      SHADOWS (basert på primærfarge)
      ============================================ */
-  --metis-shadow-xs: 0 1px 2px rgba(255, 128, 0, 0.04);
-  --metis-shadow-sm: 0 2px 4px rgba(255, 128, 0, 0.06);
-  --metis-shadow-md: 0 4px 12px rgba(255, 128, 0, 0.08);
-  --metis-shadow-lg: 0 8px 24px rgba(255, 128, 0, 0.12);
-  --metis-shadow-xl: 0 16px 48px rgba(255, 128, 0, 0.16);
+  --metis-shadow-xs: 0 1px 2px rgba(255, 130, 0, 0.04);
+  --metis-shadow-sm: 0 2px 4px rgba(255, 130, 0, 0.06);
+  --metis-shadow-md: 0 4px 12px rgba(255, 130, 0, 0.08);
+  --metis-shadow-lg: 0 8px 24px rgba(255, 130, 0, 0.12);
+  --metis-shadow-xl: 0 16px 48px rgba(255, 130, 0, 0.16);
 }

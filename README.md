@@ -45,13 +45,15 @@ window.addEventListener('metis-theme-change', (e) => {
 
 ## Tilgjengelige temaer
 
-| Tema-ID | Navn | Primærfarge | Status |
-|---------|------|-------------|--------|
-| `bpg` | Bergen Private Gymnas | #1F4739 (grønn) | ✅ Produksjon |
-| `metis-vgs` | Metis Videregående | #EE2737 (rød) | ✅ Produksjon |
-| `privatist` | Metis Privatist (alle) | #00b398 (teal) | ✅ Produksjon |
-| `privatlarer` | Metis Privatlærer (alle) | #FF8000 (oransje) | ✅ Produksjon |
-| `metis` | Metis Utdanning (generell) | #188AAD (cyan-blå) | ✅ Produksjon |
+> Farger oppdatert fra [merkevare-siden](https://www.metisutdanning.no/merkevare)
+
+| Tema-ID | Navn | Primærfarge | Sekundærfarge | Status |
+|---------|------|-------------|---------------|--------|
+| `bpg` | Bergen Private Gymnas | #006241 (forest green) | #d4e9e2 (light green) | ✅ Produksjon |
+| `metis-vgs` | Metis Videregående | #ee2737 (rød) | #fab9bc (light pink) | ✅ Produksjon |
+| `privatist` | Metis Privatistskole | #00b398 (teal) | #7bd4c8 (seafoam) | ✅ Produksjon |
+| `privatlarer` | Metis Privatlærer | #ff8200 (oransje) | #fabc7c (peach) | ✅ Produksjon |
+| `metis` | Metis Utdanning | #18799c (teal) | #bed6e1 (lys blå) | ✅ Produksjon |
 
 Se [THEME-STATUS.md](THEME-STATUS.md) for detaljer om hva som mangler.
 

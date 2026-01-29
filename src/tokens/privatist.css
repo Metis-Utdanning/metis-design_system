@@ -1,16 +1,19 @@
 /**
- * Metis Privatist - Theme Tokens
+ * Metis Privatistskole - Theme Tokens
  *
  * Tema-ID: privatist
  * Dekker: MPB, MPO, MPSS (alle privatist-enheter)
+ *
+ * Farger hentet fra: https://www.metisutdanning.no/merkevare
  * Primærfarge: Teal (#00b398)
- * Sekundærfarge: Beige (#f9f3e6)
+ * Sekundærfarge: Seafoam (#7bd4c8)
+ * Aksentfarge: Gull (#f7ea48)
  */
 
 [data-theme="privatist"],
 .theme-privatist {
   /* ============================================
-     PRIMÆRFARGER (teal)
+     PRIMÆRFARGER (teal - fra merkevare)
      ============================================ */
   --metis-primary: #00b398;
   --metis-primary-hover: #009980;
@@ -18,11 +21,18 @@
   --metis-primary-rgb: 0, 179, 152;
 
   /* ============================================
-     SEKUNDÆRFARGER (beige/cream)
+     SEKUNDÆRFARGER (seafoam - fra merkevare)
      ============================================ */
-  --metis-secondary: #f9f3e6;
-  --metis-secondary-muted: #f0e8d6;
-  --metis-secondary-rgb: 249, 243, 230;
+  --metis-secondary: #7bd4c8;
+  --metis-secondary-muted: #5fc9bb;
+  --metis-secondary-rgb: 123, 212, 200;
+
+  /* ============================================
+     AKSENTFARGER
+     ============================================ */
+  --metis-gold: #f7ea48;
+  --metis-gold-hover: #e5d93a;
+  --metis-gold-rgb: 247, 234, 72;
 
   /* ============================================
      UTVIDET PALETT
@@ -46,7 +56,7 @@
      HSL (for Squarespace-kompatibilitet)
      ============================================ */
   --metis-primary-hsl: 171, 100%, 35%;
-  --metis-secondary-hsl: 41, 68%, 94%;
+  --metis-secondary-hsl: 170, 51%, 66%;
 
   /* ============================================
      BORDERS (basert på primærfarge)

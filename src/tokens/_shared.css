@@ -8,10 +8,12 @@
 :root {
   /* ============================================
      NØYTRALE FARGER (felles)
+     Kilde: https://www.metisutdanning.no/merkevare
      ============================================ */
-  --metis-white: #f4f4f6;
+  --metis-white: #f5f5f7;           /* off-white fra merkevare */
   --metis-white-pure: #ffffff;
   --metis-black: #000000;
+  --metis-charcoal: #3f3f3f;        /* charcoal fra merkevare */
   --metis-gray-50: #fafafa;
   --metis-gray-100: #f5f5f5;
   --metis-gray-200: #e7e7e7;
@@ -25,27 +27,28 @@
 
   /* ============================================
      TYPOGRAFI - Fonts
+     Kilde: https://www.metisutdanning.no/merkevare
      ============================================ */
 
-  /* Heading font: Jubilat (serif) */
-  --metis-font-heading: "jubilat", Georgia, "Times New Roman", serif;
-  --metis-font-heading-weight: 200;
+  /* Heading font: Wotfard (fra merkevare) */
+  --metis-font-heading: "Wotfard", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --metis-font-heading-weight: 600;
   --metis-font-heading-style: normal;
   --metis-font-heading-transform: none;
-  --metis-font-heading-spacing: 0em;
-  --metis-font-heading-line-height: 1.4;
+  --metis-font-heading-spacing: -0.02em;
+  --metis-font-heading-line-height: 1.3;
 
-  /* Body font: Raleway (sans-serif) */
-  --metis-font-body: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --metis-font-body-weight: 300;
+  /* Body font: Novela (fra merkevare) */
+  --metis-font-body: "Novela", Georgia, "Times New Roman", serif;
+  --metis-font-body-weight: 400;
   --metis-font-body-style: normal;
   --metis-font-body-transform: none;
   --metis-font-body-spacing: 0em;
-  --metis-font-body-line-height: 1.8;
+  --metis-font-body-line-height: 1.7;
 
   /* Meta font (labels, small text) */
-  --metis-font-meta: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --metis-font-meta-weight: 400;
+  --metis-font-meta: "Wotfard", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --metis-font-meta-weight: 500;
   --metis-font-meta-spacing: 0.01em;
   --metis-font-meta-line-height: 1;
 

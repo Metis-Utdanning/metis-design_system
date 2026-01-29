@@ -2,35 +2,45 @@
  * Metis Videregående Skole - Theme Tokens
  *
  * Tema-ID: metis-vgs
- * Primærfarge: Rød (#EE2737)
- * Sekundærfarge: Gul (#F6E948)
+ *
+ * Farger hentet fra: https://www.metisutdanning.no/merkevare
+ * Primærfarge: Rød (#ee2737)
+ * Sekundærfarge: Light pink (#fab9bc)
+ * Aksentfarge: Grønn (#27ee7b)
  */
 
 [data-theme="metis-vgs"],
 .theme-metis-vgs {
   /* ============================================
-     PRIMÆRFARGER (rød)
+     PRIMÆRFARGER (rød - fra merkevare)
      ============================================ */
-  --metis-primary: #EE2737;
-  --metis-primary-hover: #C41E2D;
-  --metis-primary-light: #F04D5A;
+  --metis-primary: #ee2737;
+  --metis-primary-hover: #c41e2d;
+  --metis-primary-light: #f04d5a;
   --metis-primary-rgb: 238, 39, 55;
 
   /* ============================================
-     SEKUNDÆRFARGER (gul)
+     SEKUNDÆRFARGER (light pink - fra merkevare)
      ============================================ */
-  --metis-secondary: #F6E948;
-  --metis-secondary-muted: #E5D83A;
-  --metis-secondary-rgb: 246, 233, 72;
+  --metis-secondary: #fab9bc;
+  --metis-secondary-muted: #f8a3a7;
+  --metis-secondary-rgb: 250, 185, 188;
+
+  /* ============================================
+     AKSENTFARGER
+     ============================================ */
+  --metis-accent-green: #27ee7b;
+  --metis-accent-green-hover: #1fd568;
+  --metis-accent-green-rgb: 39, 238, 123;
 
   /* ============================================
      UTVIDET PALETT
      ============================================ */
   --metis-dark: #2a1a1a;
   --metis-teal: #5a2a2a;
-  --metis-green: #EE2737;
-  --metis-peach: #F9B8BB;
-  --metis-peach-light: #FDE8E9;
+  --metis-green: #27ee7b;
+  --metis-peach: #fab9bc;
+  --metis-peach-light: #fde8e9;
 
   /* ============================================
      TEKST
@@ -44,8 +54,8 @@
   /* ============================================
      HSL (for Squarespace-kompatibilitet)
      ============================================ */
-  --metis-primary-hsl: 355, 85%, 55%;
-  --metis-secondary-hsl: 55, 90%, 62%;
+  --metis-primary-hsl: 355, 85%, 54%;
+  --metis-secondary-hsl: 357, 88%, 85%;
 
   /* ============================================
      BORDERS (basert på primærfarge)
