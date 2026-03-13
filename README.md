@@ -49,11 +49,11 @@ window.addEventListener('metis-theme-change', (e) => {
 
 | Tema-ID | Navn | Primærfarge | Sekundærfarge | Status |
 |---------|------|-------------|---------------|--------|
-| `bpg` | Bergen Private Gymnas | #006241 (forest green) | #d4e9e2 (light green) | ✅ Produksjon |
-| `metis-vgs` | Metis Videregående | #ee2737 (rød) | #fab9bc (light pink) | ✅ Produksjon |
-| `privatist` | Metis Privatistskole | #00b398 (teal) | #7bd4c8 (seafoam) | ✅ Produksjon |
-| `privatlarer` | Metis Privatlærer | #ff8200 (oransje) | #fabc7c (peach) | ✅ Produksjon |
-| `metis` | Metis Utdanning | #18799c (teal) | #bed6e1 (lys blå) | ✅ Produksjon |
+| `bpg` | Bergen Private Gymnas | #1F4739 (forest green) | #E8F5A3 (light green) | ✅ Produksjon |
+| `metis-vgs` | Metis Videregående | #ee2737 (rød) | #F6E948 (gul) | ✅ Produksjon |
+| `privatist` | Metis Privatistskole | #00b398 (teal) | #f9f3e6 (cream) | ✅ Produksjon |
+| `privatlarer` | Metis Privatlærer | #ff8200 (oransje) | #18405F (mørk blå) | ✅ Produksjon |
+| `metis` | Metis Utdanning | #188AAD (teal) | #D6E4EB (lys blå) | ✅ Produksjon |
 
 Se [THEME-STATUS.md](THEME-STATUS.md) for detaljer om hva som mangler.
 
@@ -69,8 +69,8 @@ metis-design_system/
 │   │   ├── bpg.css
 │   │   ├── metis-vgs.css
 │   │   ├── privatist.css
-│   │   ├── privatlarer.css  # TODO
-│   │   └── metis.css        # TODO
+│   │   ├── privatlarer.css
+│   │   └── metis.css
 │   └── loader.js            # Dynamisk tema-laster
 │
 ├── src/                     # Kildefiler
@@ -81,7 +81,6 @@ metis-design_system/
 │   └── index.html
 │
 ├── docs/                    # Dokumentasjon
-│   ├── GETTING-STARTED.md
 │   └── DATABASE-PLAN.md
 │
 ├── CLAUDE.md                # AI-kontekst
@@ -123,7 +122,7 @@ Alle temaer bruker samme variabel-namespace:
 --metis-radius-sm ... --metis-radius-full
 ```
 
-Se [docs/TOKENS.md](docs/TOKENS.md) for komplett referanse.
+Se [THEME-STATUS.md](THEME-STATUS.md) for detaljer om tilgjengelige tokens per tema.
 
 ---
 
