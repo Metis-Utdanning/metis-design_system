@@ -150,11 +150,54 @@ Se [CLAUDE.md](CLAUDE.md) for maskinlesbar kontekst om dette designsystemet.
 
 ---
 
+## API-backed themes (live siden 2026-03-18)
+
+Temaer serveres nå **primært fra MetisDB API** — ikke bare CDN. Dette repoet er fallback/referanse for `dist/metis-base.css` og CDN-distribuerte tema-filer.
+
+### Anbefalt integrasjonsmønster for nye apper
+
+```html
+<!-- Base-stiler fra CDN (alltid nødvendig) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/metis-base.css">
+
+<!-- Tema fra MetisDB API (dynamisk — endres av admins i MetisVerse) -->
+<link rel="stylesheet" href="https://api.metisutdanning.no/api/public/themes/bpg/css">
+```
+
+### Dynamisk resolve (når du ikke vet tema-ID)
+
+```javascript
+fetch(`https://api.metisutdanning.no/api/public/themes/resolve/${department}`)
+  .then(r => r.json())
+  .then(({ themeId }) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://api.metisutdanning.no/api/public/themes/${themeId}/css`;
+    document.head.appendChild(link);
+    document.documentElement.setAttribute('data-theme', themeId);
+  });
+```
+
+### Admin-UI
+Farger og fonter administreres i **MetisVerse → Organisasjoner → Branding-editor**. Endringer publiseres uten deploy av dette repoet.
+
+### Tilgjengelige API-endepunkter
+| Endepunkt | Beskrivelse |
+|-----------|-------------|
+| `GET /api/public/themes` | Liste alle aktive temaer |
+| `GET /api/public/themes/:themeId/css` | Generert CSS (alle `--metis-*` variabler) |
+| `GET /api/public/themes/resolve/:department` | department → tema-ID |
+| `GET /api/public/org/:shortName/logo` | Logo-fil for organisasjon |
+| `GET /api/public/org/:shortName/branding` | Komplett branding-pakke (JSON) |
+
+---
+
 ## Relaterte prosjekter
 
 | Repo | Beskrivelse |
 |------|-------------|
-| [Metis-Utdanning/MetisDB](https://github.com/Metis-Utdanning/MetisDB) | Elevregister og API |
+| [Metis-Utdanning/MetisDB](https://github.com/Metis-Utdanning/MetisDB) | Elevregister og API — inkluderer branding-API |
+| [Metis-Utdanning/metis-MetisVerse](https://github.com/Metis-Utdanning/metis-MetisVerse) | Admin-UI med branding-editor |
 | [fredeids-metis/school-data](https://github.com/fredeids-metis/school-data) | Fagdata og studieplanlegger |
 
 ---

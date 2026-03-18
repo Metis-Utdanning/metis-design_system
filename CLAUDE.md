@@ -207,9 +207,40 @@ dist/loader.js
 
 ---
 
-## Fremtidig: Database-integrasjon
+## API-backed themes (LIVE — erstatter "Fremtidig: Database-integrasjon")
 
-Det planlegges å kunne hente tema-overrides fra MetisDB API.
-Se `docs/DATABASE-PLAN.md` for detaljer.
+Temaer serveres nå primært fra MetisDB API — ikke bare CDN. Dette repoet er **fallback/referanse** og kilde for `dist/metis-base.css`.
+
+### Primær distribusjon: MetisDB API
+```
+GET https://api.metisutdanning.no/api/public/themes/:themeId/css
+```
+Returnerer dynamisk generert CSS med alle `--metis-*` variabler basert på data i `organization_branding`-tabellen. Endres av MetisVerse-admins uten å endre dette repoet.
+
+### Resolve department → tema-ID
+```
+GET https://api.metisutdanning.no/api/public/themes/resolve/:department
+```
+Brukes når du vet department-streng men ikke tema-ID direkte.
+
+### Anbefalt integrasjonsmønster for nye apper
+```html
+<!-- Steg 1: Last base-stiler fra CDN (uendret) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Metis-Utdanning/metis-design_system@main/dist/metis-base.css">
+
+<!-- Steg 2: Last tema fra API (dynamiske farger/fonter fra MetisDB) -->
+<link rel="stylesheet" href="https://api.metisutdanning.no/api/public/themes/bpg/css">
+```
+
+### Fallback til CDN
+Dersom API er utilgjengelig, faller appen tilbake på `dist/themes/bpg.css` fra CDN. CDN-filene i dette repoet holdes synkronisert med API-defaults.
+
+### Admin-UI
+Farger og fonter administreres i **MetisVerse → Organisasjoner → Branding-editor**. Publisering genererer ny CSS og lagrer i `organization_branding.published_css`.
+
+### Relaterte endepunkter (MetisDB)
+- `GET /api/public/themes` — liste alle aktive temaer
+- `GET /api/public/org/:shortName/logo` — logo-fil
+- `GET /api/public/org/:shortName/branding` — komplett branding-pakke (JSON)
 
 **VIKTIG:** Dette repoet inneholder INGEN database-credentials eller sensitiv info.
